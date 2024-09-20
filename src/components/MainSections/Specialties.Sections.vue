@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <div class="background">
     <div class="container">
       <div class="titolo">
         <h2>Our Specialties</h2>
@@ -56,15 +56,19 @@ export default {
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use "/src/assets/scss/general.scss" as *;
-
+.background {
+  background-color: #fafafa;
+  width: 100%;
+}
 .container {
   width: 80%;
   margin: 0 auto;
+  background-color: white;
 }
 .titolo h2,
 p {
@@ -86,7 +90,6 @@ p {
 .titolo p {
   font-size: x-large;
   color: grey;
-  margin-bottom: 80px;
   margin-top: 10px;
   position: relative;
 }
@@ -111,6 +114,7 @@ p {
   align-items: center;
   margin-right: 20px;
   margin-left: 20px;
+  margin-bottom: 40px;
 }
 .card h4 {
   margin-top: 10px;

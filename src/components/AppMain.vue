@@ -1,18 +1,21 @@
 <script>
 import SpecialtiesSections from "./MainSections/Specialties.Sections.vue";
+import JasonBickford from "./MainSections/JasonBickford.vue";
 export default {
   data() {
     return {};
   },
   components: {
     SpecialtiesSections,
+    JasonBickford,
   },
-  methods: {},
 };
 </script>
 
 <template>
   <SpecialtiesSections />
+
+  <JasonBickford />
 </template>
 
 <style lang="scss">
