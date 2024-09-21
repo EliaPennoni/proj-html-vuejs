@@ -16,3 +16,16 @@ footer {
   max-width: 100vw;
   padding-top: 20px;
 }
+@font-face {
+  font-family: "MyFont";
+  src: url("/src/assets/font/TuesdayNight-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyFont2";
+  src: url("/src/assets/font/LibreBaskerville-Regular.ttf")
+    format("regulartype");
+  font-weight: normal;
+  font-style: normal;
+}

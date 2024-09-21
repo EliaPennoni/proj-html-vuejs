@@ -50,7 +50,6 @@ export default {
             </div>
           </div>
         </div>
-        <img class="pixel" src="/teach/svg/svg-4.svg" alt="" />
         <div class="bickford">
           <h3>Jason Bickford</h3>
           <span>Founder and Executive Director</span>
@@ -59,12 +58,15 @@ export default {
             corrupti.
           </p>
           <span>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <img src="" alt="" />
+            <div class="link">
+              <a href=""><i class="fa-brands fa-linkedin"></i></a>
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <p>Jason Bickford</p>
           </span>
         </div>
+        <img class="pixel" src="/teach/svg/svg-4.svg" alt="" />
       </div>
     </div>
   </div>
@@ -103,23 +105,66 @@ export default {
   padding: 20px;
 }
 .rev {
-  max-width: 50%;
+  max-width: 60%;
   position: relative;
 }
 .rev img {
   max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 .pixel {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -50px;
+  right: -100px;
 }
 .bickford {
   position: absolute;
-  top: 50%;
-  left: 40%;
+  top: 25%;
+  left: 50%;
   z-index: 999;
   background-color: white;
   padding: 30px;
+  width: 500px;
+}
+.bickford h3 {
+  font-family: "TuesdayNight", serif;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.bickford p {
+  margin-top: 20px;
+}
+.bickford span:first-of-type {
+  color: gray;
+  margin-bottom: 30px;
+}
+.bickford span::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: 100px;
+  right: 82%;
+}
+.bickford span:last-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+.bickford span:last-of-type i {
+  color: #ff4612;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+.bickford span:last-of-type i:hover {
+  color: black;
+}
+.bickford span:last-of-type p {
+  font-family: "MyFont", sans-serif;
+  color: #ff4612;
+  font-size: 30px;
 }
 </style>
