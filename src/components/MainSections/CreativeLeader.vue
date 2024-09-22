@@ -19,19 +19,19 @@ export default {
       </div>
       <div class="right">
         <div class="mentorship">
-          <span>mentorship</span>
+          <span>Mentorship</span>
           <span>78%</span>
         </div>
         <div class="education">
-          <span>education</span>
+          <span>Education</span>
           <span>95%</span>
         </div>
         <div class="learning">
-          <span>learning</span>
+          <span>Learning</span>
           <span>65%</span>
         </div>
         <div class="motivation">
-          <span>motivation</span>
+          <span>Motivation</span>
           <span>83%</span>
         </div>
       </div>
@@ -54,10 +54,60 @@ export default {
 .left {
   width: 50%;
   padding: 20px;
+  position: relative;
 }
+.left h3 {
+  font-size: 35px;
+  font-family: "Libre Baskerville", serif;
+  margin-bottom: 40px;
+}
+.left p {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: gray;
+}
+.left h3::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #ff4612;
+  border-radius: 50%;
+  margin-left: 3px;
+  vertical-align: baseline;
+}
+.left p::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: 140px;
+  left: 20px;
+}
+.left span {
+  font-weight: bold;
+}
+.left span::before {
+  content: "\f178";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, left 0.5s ease;
+}
+
+.left span:hover::before {
+  opacity: 1;
+}
+
 .right {
   width: 50%;
-  padding: 20px;
+  padding: 30px;
 }
 .mentorship,
 .education,
@@ -65,5 +115,53 @@ export default {
 .motivation {
   display: flex;
   justify-content: space-between;
+  font-family: "Libre Baskerville", serif;
+  font-size: 19px;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 30px;
+}
+.mentorship::before,
+.education::before,
+.learning::before,
+.motivation::before {
+  content: "";
+  display: inline-block;
+  width: 100%; /* Barra grigia è larga quanto il contenitore */
+  height: 3px;
+  background-color: lightgray;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+/* Barra arancione (usa ::after) */
+.mentorship::after,
+.education::after,
+.learning::after,
+.motivation::after {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+.mentorship::after {
+  width: 78%; /* Percentuale di completamento per mentorship */
+}
+
+.education::after {
+  width: 95%; /* Percentuale di completamento per education */
+}
+
+.learning::after {
+  width: 65%; /* Percentuale di completamento per learning */
+}
+
+.motivation::after {
+  width: 83%; /* Percentuale di completamento per motivation */
 }
 </style>

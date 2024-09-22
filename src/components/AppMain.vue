@@ -3,6 +3,7 @@ import SpecialtiesSections from "./MainSections/Specialties.Sections.vue";
 import JasonBickford from "./MainSections/JasonBickford.vue";
 import UpcomingEvent from "./MainSections/UpcomingEvent.vue";
 import CreativeLeader from "./MainSections/CreativeLeader.vue";
+import LatestNews from "./MainSections/LatestNews.vue";
 export default {
   data() {
     return {};
@@ -12,6 +13,7 @@ export default {
     JasonBickford,
     UpcomingEvent,
     CreativeLeader,
+    LatestNews,
   },
 };
 </script>
@@ -24,6 +26,8 @@ export default {
   <UpcomingEvent />
 
   <CreativeLeader />
+
+  <latestNews />
 </template>
 
 <style lang="scss">
