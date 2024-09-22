@@ -29,25 +29,33 @@ export default {
         },
       ],
       currentIndex: 0, // Indice attuale, inizia con 0
+      visibleCardsCount: 3,
     };
   },
   computed: {
     visibleCards() {
       // Ritorna solo le 3 card visibili in base all'indice corrente
-      return this.cards.slice(this.currentIndex, this.currentIndex + 3);
+      return this.cards.slice(
+        this.currentIndex,
+        this.currentIndex + this.visibleCardsCount
+      );
     },
   },
   methods: {
     next() {
       // Aumenta l'indice solo se ci sono altre card da mostrare
-      if (this.currentIndex < this.cards.length - 3) {
+      if (this.currentIndex < this.cards.length - this.visibleCardsCount) {
         this.currentIndex++;
+      } else {
+        this.currentIndex = 0;
       }
     },
     prev() {
       // Riduci l'indice solo se non siamo già alla prima card
       if (this.currentIndex > 0) {
         this.currentIndex--;
+      } else {
+        this.currentIndex = this.cards.length - this.visibleCardsCount;
       }
     },
   },
@@ -59,36 +67,49 @@ export default {
 <template>
   <div class="background">
     <div class="container">
+      <img class="pixel" src="/teach/svg/svg-4.svg" alt="" />
       <h3>Latest News</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
       <div class="carousel-container">
         <div class="carousel">
-          <div class="cards">
-            <div
-              v-for="(card, index) in visibleCards"
-              :key="index"
-              class="card"
-            >
+          <!-- Aggiungi il `translateX` per spostare il blocco delle card -->
+          <div
+            class="cards"
+            :style="{
+              transform: `translateX(-${
+                currentIndex * (100 / visibleCardsCount)
+              }%)`,
+            }"
+          >
+            <div v-for="(card, index) in cards" :key="index" class="card">
               <img :src="card.img" alt="" />
-              <span
-                ><i class="fa-regular fa-clock fa-sm"
+              <span>
+                <i class="fa-regular fa-clock fa-sm"
                   ><a href="">May 5, 2019</a></i
-                ><i class="fa-regular fa-user fa-sm"
+                >
+                <i class="fa-regular fa-user fa-sm"
                   ><a href="">Amanda Doe</a></i
-                ></span
-              >
-              <h3>{{ card.title }}</h3>
+                >
+              </span>
+              <button><i class="fa-solid fa-tag"></i> Business, Leading</button>
+              <h4>{{ card.title }}</h4>
               <p>{{ card.description }}</p>
+              <span>Read More</span>
             </div>
           </div>
         </div>
-
-        <button @click="prev" class="carousel-btn left">&lt;</button>
-        <button @click="next" class="carousel-btn right">&gt;</button>
+        <div class="arrow-left">
+          <i @click="prev" class="fa-solid fa-arrow-left-long"></i>
+        </div>
+        <div class="arrow-right">
+          <i @click="next" class="fa-solid fa-arrow-right-long"></i>
+        </div>
       </div>
     </div>
   </div>
 </template>
+  
   
 <style lang="scss" scoped>
 @use "/src/assets/scss/general.scss" as *;
@@ -102,16 +123,31 @@ export default {
   width: 80%;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+}
+.pixel {
+  position: absolute;
+  top: -10%;
+}
+.container h3,
+.container p {
+  position: relative; /* Non serve z-index, l'immagine si posiziona sotto */
+  text-align: center;
+  z-index: 2; /* Assicurati che siano sopra l'immagine */
 }
 .container h3 {
-  font-size: 35px;
   font-family: "Libre Baskerville", serif;
   margin-bottom: 20px;
   text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+}
+.container > p {
+  text-align: center;
+  margin-bottom: 30px;
 }
 .container p {
-  text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .container h3::after {
   content: "";
@@ -133,6 +169,39 @@ export default {
 .carousel {
   display: flex;
   width: 100%;
+  position: relative;
+  overflow: hidden; /* Nasconde le card extra */
+}
+
+.cards {
+  display: flex;
+  width: 100%; /* Fa in modo che le card si dispongano in fila */
+  transition: transform 0.5s ease; /* Aggiungi transizione per uno scorrimento fluido */
+}
+
+.card {
+  width: calc(((100% / 3) - 10px));
+  flex-shrink: 0; /* Mantiene la larghezza della card costante */
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 0px;
+}
+
+.arrow-right {
+  right: 0px;
 }
 
 .cards {
@@ -140,23 +209,31 @@ export default {
   transition: transform 0.5s ease; /* Transizione fluida per lo scorrimento */
 }
 
-.card {
-  width: calc(100% / 3); /* Ogni card ha larghezza fissa, per mostrare 3 card */
-  padding: 20px;
-  background-color: #f5f5f5;
-  margin: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
+.card button {
+  position: absolute;
+  top: 42%;
+  right: 40px;
+  padding: 8px;
+  background-color: #ff4612;
+  border: none;
+  color: white;
+  font-size: small;
+}
+.card h4 {
+  font-size: xx-large;
+  font-family: "Libre Baskerville", serif;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 .card img {
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #ff4612;
   color: white;
   border: none;
   padding: 10px;

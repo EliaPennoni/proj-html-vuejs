@@ -4,6 +4,8 @@ import JasonBickford from "./MainSections/JasonBickford.vue";
 import UpcomingEvent from "./MainSections/UpcomingEvent.vue";
 import CreativeLeader from "./MainSections/CreativeLeader.vue";
 import LatestNews from "./MainSections/LatestNews.vue";
+import Testimonials from "./MainSections/Testimonials.vue";
+import Picture from "./MainSections/Picture.vue";
 export default {
   data() {
     return {};
@@ -14,6 +16,8 @@ export default {
     UpcomingEvent,
     CreativeLeader,
     LatestNews,
+    Testimonials,
+    Picture,
   },
 };
 </script>
@@ -28,6 +32,10 @@ export default {
   <CreativeLeader />
 
   <latestNews />
+
+  <Testimonials />
+
+  <Picture />
 </template>
 
 <style lang="scss">
