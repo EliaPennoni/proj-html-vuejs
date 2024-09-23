@@ -28,13 +28,12 @@ export default {
           img: "/public/teach/img/h1-blog-img-04.jpg",
         },
       ],
-      currentIndex: 0, // Indice attuale, inizia con 0
+      currentIndex: 0,
       visibleCardsCount: 3,
     };
   },
   computed: {
     visibleCards() {
-      // Ritorna solo le 3 card visibili in base all'indice corrente
       return this.cards.slice(
         this.currentIndex,
         this.currentIndex + this.visibleCardsCount
@@ -43,7 +42,6 @@ export default {
   },
   methods: {
     next() {
-      // Aumenta l'indice solo se ci sono altre card da mostrare
       if (this.currentIndex < this.cards.length - this.visibleCardsCount) {
         this.currentIndex++;
       } else {
@@ -51,7 +49,6 @@ export default {
       }
     },
     prev() {
-      // Riduci l'indice solo se non siamo già alla prima card
       if (this.currentIndex > 0) {
         this.currentIndex--;
       } else {
@@ -73,7 +70,6 @@ export default {
 
       <div class="carousel-container">
         <div class="carousel">
-          <!-- Aggiungi il `translateX` per spostare il blocco delle card -->
           <div
             class="cards"
             :style="{
@@ -99,13 +95,13 @@ export default {
             </div>
           </div>
         </div>
-        <div class="arrow-left">
-          <i @click="prev" class="fa-solid fa-arrow-left-long"></i>
-        </div>
-        <div class="arrow-right">
-          <i @click="next" class="fa-solid fa-arrow-right-long"></i>
-        </div>
       </div>
+    </div>
+    <div class="arrow-left">
+      <i @click="prev" class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="arrow-right">
+      <i @click="next" class="fa-solid fa-arrow-right-long"></i>
     </div>
   </div>
 </template>
@@ -116,6 +112,7 @@ export default {
 .background {
   background-color: #fafafa;
   width: 100%;
+  position: relative;
 }
 
 .container {
@@ -131,9 +128,8 @@ export default {
 }
 .container h3,
 .container p {
-  position: relative; /* Non serve z-index, l'immagine si posiziona sotto */
   text-align: center;
-  z-index: 2; /* Assicurati che siano sopra l'immagine */
+  z-index: 2;
 }
 .container h3 {
   font-family: "Libre Baskerville", serif;
@@ -141,10 +137,12 @@ export default {
   text-align: center;
   font-size: 40px;
   font-weight: 600;
+  position: relative;
 }
 .container > p {
   text-align: center;
   margin-bottom: 30px;
+  position: relative;
 }
 .container p {
   margin-bottom: 30px;
@@ -159,33 +157,56 @@ export default {
   margin-left: 3px;
   vertical-align: baseline;
 }
+.container p::before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: -20px;
+  left: 47%;
+}
 
 .carousel-container {
   position: relative;
   width: 100%;
-  overflow: hidden; /* Nasconde le card extra */
+  overflow: hidden;
 }
 
 .carousel {
   display: flex;
   width: 100%;
   position: relative;
-  overflow: hidden; /* Nasconde le card extra */
+  overflow: hidden;
 }
 
 .cards {
   display: flex;
-  width: 100%; /* Fa in modo che le card si dispongano in fila */
-  transition: transform 0.5s ease; /* Aggiungi transizione per uno scorrimento fluido */
+  width: 100%;
+  transition: transform 0.5s ease;
 }
 
 .card {
   width: calc(((100% / 3) - 10px));
-  flex-shrink: 0; /* Mantiene la larghezza della card costante */
+  flex-shrink: 0;
   padding: 20px;
   margin: 10px;
   text-align: center;
   position: relative;
+}
+.card {
+  position: relative;
+}
+.card p::before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: 50px;
+  left: 130px;
 }
 
 .arrow-left,
@@ -197,16 +218,16 @@ export default {
 }
 
 .arrow-left {
-  left: 0px;
+  left: 120px;
 }
 
 .arrow-right {
-  right: 0px;
+  right: 80px;
 }
 
 .cards {
   display: flex;
-  transition: transform 0.5s ease; /* Transizione fluida per lo scorrimento */
+  transition: transform 0.5s ease;
 }
 
 .card button {

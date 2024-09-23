@@ -116,6 +116,17 @@ export default {
   color: white;
   font-size: 20px;
   font-family: "TuesdayNight", serif;
+  position: relative;
+}
+.plans h4::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background-color: #ff4612;
+  position: absolute;
+  bottom: -10px;
+  right: 75%;
 }
 .link {
   display: flex;

@@ -43,59 +43,57 @@ export default {
 </script>
 
 <template>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">
-          <a href="">
-            <img src="/teach/img/logo-img-01.png" alt="" />
-          </a>
-        </div>
-        <div class="list">
-          <ul>
-            <li class="active"><a href="">homes</a></li>
-            <li><a href="">pages</a></li>
-            <li><a href="">blog</a></li>
-            <li><a href="">shop</a></li>
-            <li><a href="">events</a></li>
-            <li><a href="">elements</a></li>
-            <div class="icon">
-              <span>
-                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-              </span>
-              <span>
-                <a href=""><i class="fa-solid fa-list"></i></a>
-              </span>
-            </div>
-          </ul>
-        </div>
-      </nav>
-      <!-- sezione immagini -->
-      <div class="images">
-        <div class="rev">
-          <img :src="headerImg[index].logoImg" alt="" />
-        </div>
-        <div class="info">
-          <h1>
-            {{ headerImg[index].info }}
-          </h1>
-          <p>{{ headerImg[index].description }}</p>
-          <button>
-            <span>Read More |</span><i class="fa fa-arrow-right-long"></i>
-          </button>
-          <button>
-            <span>Purchase |</span><i class="fa fa-arrow-right-long"></i>
-          </button>
-        </div>
-        <div class="arrow-right">
-          <i @click="imgPlus()" class="fa fa-arrow-right-long fa-2x"></i>
-        </div>
-        <div class="arrow-left">
-          <i @click="imgMinus()" class="fa fa-arrow-left-long fa-2x"></i>
-        </div>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <a href="">
+          <img src="/teach/img/logo-img-01.png" alt="" />
+        </a>
+      </div>
+      <div class="list">
+        <ul>
+          <li class="active"><a href="">homes</a></li>
+          <li><a href="">pages</a></li>
+          <li><a href="">blog</a></li>
+          <li><a href="">shop</a></li>
+          <li><a href="">events</a></li>
+          <li><a href="">elements</a></li>
+          <div class="icon">
+            <span>
+              <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            </span>
+            <span>
+              <a href=""><i class="fa-solid fa-list"></i></a>
+            </span>
+          </div>
+        </ul>
+      </div>
+    </nav>
+    <!-- sezione immagini -->
+    <div class="images">
+      <div class="rev">
+        <img :src="headerImg[index].logoImg" alt="" />
+      </div>
+      <div class="info">
+        <h1>
+          {{ headerImg[index].info }}
+        </h1>
+        <p>{{ headerImg[index].description }}</p>
+        <button>
+          <span>Read More |</span><i class="fa fa-arrow-right-long"></i>
+        </button>
+        <button>
+          <span>Purchase |</span><i class="fa fa-arrow-right-long"></i>
+        </button>
+      </div>
+      <div class="arrow-right">
+        <i @click="imgPlus()" class="fa fa-arrow-right-long fa-2x"></i>
+      </div>
+      <div class="arrow-left">
+        <i @click="imgMinus()" class="fa fa-arrow-left-long fa-2x"></i>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <style lang="scss" scoped>

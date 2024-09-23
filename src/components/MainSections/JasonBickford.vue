@@ -79,6 +79,7 @@ export default {
   background-color: #fafafa;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .container {
@@ -91,7 +92,12 @@ export default {
 }
 .images {
   padding: 30px;
-  position: relative;
+  z-index: 999;
+}
+.pixel {
+  position: absolute;
+  top: 40px;
+  right: -90px;
 }
 .button {
   display: flex;
@@ -109,22 +115,18 @@ export default {
   position: relative;
 }
 .rev img {
-  max-width: 100%;
-  height: auto;
+  width: 650px;
+  height: 380px;
   object-fit: cover;
 }
-.pixel {
-  position: absolute;
-  top: -50px;
-  right: -100px;
-}
+
 .bickford {
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 50%;
   z-index: 999;
   background-color: white;
-  padding: 30px;
+  padding: 20px;
   width: 500px;
 }
 .bickford h3 {
@@ -138,16 +140,17 @@ export default {
 .bickford span:first-of-type {
   color: gray;
   margin-bottom: 30px;
+  position: relative;
 }
-.bickford span::after {
+.bickford span:first-of-type::after {
   content: "";
   display: inline-block;
   width: 60px;
   height: 2px;
   background-color: #ff4612;
   position: absolute;
-  bottom: 100px;
-  right: 82%;
+  bottom: -10px;
+  right: 70%;
 }
 .bickford span:last-of-type {
   display: flex;

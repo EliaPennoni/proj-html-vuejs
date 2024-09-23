@@ -60,6 +60,7 @@ export default {
   font-size: 35px;
   font-family: "Libre Baskerville", serif;
   margin-bottom: 40px;
+  position: relative;
 }
 .left p {
   margin-bottom: 20px;
@@ -76,15 +77,16 @@ export default {
   margin-left: 3px;
   vertical-align: baseline;
 }
-.left p::after {
+
+.left h3::before {
   content: "";
   display: inline-block;
   width: 60px;
   height: 2px;
   background-color: #ff4612;
   position: absolute;
-  bottom: 140px;
-  left: 20px;
+  bottom: -10px;
+  left: 5px;
 }
 .left span {
   font-weight: bold;
@@ -127,7 +129,7 @@ export default {
 .motivation::before {
   content: "";
   display: inline-block;
-  width: 100%; /* Barra grigia è larga quanto il contenitore */
+  width: 100%;
   height: 3px;
   background-color: lightgray;
   position: absolute;
@@ -135,7 +137,6 @@ export default {
   left: 0;
 }
 
-/* Barra arancione (usa ::after) */
 .mentorship::after,
 .education::after,
 .learning::after,
@@ -150,18 +151,18 @@ export default {
 }
 
 .mentorship::after {
-  width: 78%; /* Percentuale di completamento per mentorship */
+  width: 78%;
 }
 
 .education::after {
-  width: 95%; /* Percentuale di completamento per education */
+  width: 95%;
 }
 
 .learning::after {
-  width: 65%; /* Percentuale di completamento per learning */
+  width: 65%;
 }
 
 .motivation::after {
-  width: 83%; /* Percentuale di completamento per motivation */
+  width: 83%;
 }
 </style>

@@ -17,6 +17,7 @@ export default {
       <div class="plan1">
         <h4>Basic Plan</h4>
         <span class="price">100</span>
+        <span>$</span>
         <ul>
           <li>
             <i class="fa-solid fa-check"></i>
@@ -38,6 +39,7 @@ export default {
       <div class="plan2">
         <h4>Premium Plan</h4>
         <span class="price">200</span>
+        <span>$</span>
         <ul>
           <li>
             <i class="fa-solid fa-check"></i>
@@ -59,6 +61,7 @@ export default {
       <div class="plan3">
         <h4>Deluxe Plan</h4>
         <span class="price">300</span>
+        <span>$</span>
         <ul>
           <li>
             <i class="fa-solid fa-check"></i>
@@ -86,18 +89,18 @@ export default {
 
 .background {
   width: 100%;
-  height: 100vh; /* Imposta l'altezza della finestra */
-  position: relative; /* Definisce il contesto per gli elementi assoluti */
+  height: 100vh;
+  position: relative;
 }
 
 .background img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Copre l'intero contenitore senza distorcere */
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* Assicura che l'immagine sia sotto il contenuto */
+  z-index: -1;
 }
 
 .plans {
@@ -108,11 +111,21 @@ export default {
   position: absolute;
   top: 60%;
   left: 50%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Centra il contenitore orizzontalmente e verticalmente */
-  z-index: 1; /* Fa sì che i piani siano sopra l'immagine */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.plans h4 {
+  position: relative;
+}
+.plans h4::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #ff4612;
+  border-radius: 50%;
+  margin-left: 3px;
+  vertical-align: baseline;
 }
 
 .title {
@@ -177,6 +190,11 @@ export default {
 .plan2 ul li i,
 .plan3 ul li i {
   margin-right: 3px;
+}
+.plan1 span:last-of-type,
+.plan2 span:last-of-type,
+.plan3 span:last-of-type {
+  vertical-align: super;
 }
 button {
   display: block;
