@@ -6,6 +6,10 @@ import CreativeLeader from "./MainSections/CreativeLeader.vue";
 import LatestNews from "./MainSections/LatestNews.vue";
 import Testimonials from "./MainSections/Testimonials.vue";
 import Picture from "./MainSections/Picture.vue";
+import OrangeCircles from "./MainSections/OrangeCircles.vue";
+import Teachers from "./MainSections/Teachers.vue";
+import ContactUs from "./MainSections/ContactUs.vue";
+import PricingPlan from "./MainSections/PricingPlan.vue";
 export default {
   data() {
     return {};
@@ -18,6 +22,10 @@ export default {
     LatestNews,
     Testimonials,
     Picture,
+    OrangeCircles,
+    Teachers,
+    ContactUs,
+    PricingPlan,
   },
 };
 </script>
@@ -36,6 +44,14 @@ export default {
   <Testimonials />
 
   <Picture />
+
+  <OrangeCircles />
+
+  <Teachers />
+
+  <ContactUs />
+
+  <PricingPlan />
 </template>
 
 <style lang="scss">
