@@ -1,4 +1,5 @@
 <script>
+import Menu from "./HeaderSections/Menu.vue";
 export default {
   data() {
     return {
@@ -20,8 +21,88 @@ export default {
             "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, odio illum. Ut delectus voluptas, tempora modi atque harum cumque deserunt?",
         },
       ],
+      menuItems: [
+        {
+          label: "homes",
+          link: "/home",
+          active: true,
+          showDropdown: false,
+          submenu: [
+            { label: "Main Home", link: "/about-us" },
+            { label: "Business Coaching", link: "/pricing" },
+            { label: "Blog Divided", link: "/contact" },
+            { label: "Grid Home", link: "/about-us" },
+            { label: "Coaching Events", link: "/pricing" },
+            { label: "Wellness Coaching", link: "/contact" },
+            { label: "Landing", link: "/contact" },
+          ],
+        },
+        {
+          label: "pages",
+          link: "/pages",
+          showDropdown: false,
+          submenu: [
+            { label: "About us", link: "/about-us" },
+            { label: "Pricing plans", link: "/pricing" },
+            { label: "Contact us", link: "/contact" },
+            { label: "Standard List", link: "/about-us" },
+            { label: "Masonry", link: "/pricing" },
+            { label: "Post Type", link: "/contact" },
+          ],
+        },
+        {
+          label: "blog",
+          link: "/blog",
+          showDropdown: false,
+          submenu: [
+            { label: "Standard List", link: "/about-us" },
+            { label: "Masonry", link: "/pricing" },
+            { label: "Post Type", link: "/contact" },
+          ],
+        },
+        {
+          label: "shop",
+          link: "/shop",
+          showDropdown: false,
+          submenu: [
+            { label: "Product List", link: "/about-us" },
+            { label: "Product Single", link: "/pricing" },
+            { label: "Shop Layouts", link: "/contact" },
+          ],
+        },
+        {
+          label: "events",
+          link: "/events",
+          showDropdown: false,
+          submenu: [
+            { label: "Event List", link: "/about-us" },
+            { label: "Event Day", link: "/pricing" },
+            { label: "Event Calendar", link: "/contact" },
+            { label: "Single Event", link: "/about-us" },
+            { label: "Party", link: "/pricing" },
+            { label: "Shop Layouts", link: "/contact" },
+          ],
+        },
+        {
+          label: "elements",
+          link: "/elements",
+          showDropdown: false,
+          submenu: [
+            { label: "Headings", link: "/headings" },
+            { label: "Columns", link: "/columns" },
+            { label: "Typography", link: "/typography" },
+          ],
+        },
+      ],
+      menuIcons: [
+        { iconClass: "fa-solid fa-magnifying-glass", link: "/search" },
+        { iconClass: "fa-solid fa-list", link: "/menu" },
+      ],
       index: 0,
     };
+  },
+  components: {
+    Menu,
   },
   methods: {
     imgPlus() {
@@ -44,31 +125,7 @@ export default {
 
 <template>
   <div class="container">
-    <nav>
-      <div class="logo">
-        <a href="">
-          <img src="/teach/img/logo-img-01.png" alt="" />
-        </a>
-      </div>
-      <div class="list">
-        <ul>
-          <li class="active"><a href="">homes</a></li>
-          <li><a href="">pages</a></li>
-          <li><a href="">blog</a></li>
-          <li><a href="">shop</a></li>
-          <li><a href="">events</a></li>
-          <li><a href="">elements</a></li>
-          <div class="icon">
-            <span>
-              <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-            </span>
-            <span>
-              <a href=""><i class="fa-solid fa-list"></i></a>
-            </span>
-          </div>
-        </ul>
-      </div>
-    </nav>
+    <Menu :menuItems="menuItems" :menuIcons="menuIcons" />
     <!-- sezione immagini -->
     <div class="images">
       <div class="rev">
@@ -99,82 +156,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use "/src/assets/scss/general.scss" as *;
+@import "/src/assets/scss/general.scss";
+@import "/src/assets/scss/base/variabili.scss";
+@import "/src/assets/scss/base/mixin.scss";
 
-.container {
-  width: 100%;
-  position: relative;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: absolute;
-  top: 10px;
-  z-index: 999;
-  padding: 30px;
-}
-.logo img {
-  max-height: 100px;
-  max-width: 150px;
-}
-
-.list ul {
-  display: flex;
-  list-style: none;
-}
-.list ul li {
-  position: relative;
-}
-.list ul li a {
-  text-decoration: none;
-  margin-left: 15px;
-  margin-right: 15px;
-  font-size: medium;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.list ul li a::before {
-  content: "\f178";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.5s ease, left 0.5s ease;
-}
-
-.list ul li a:hover::before {
-  opacity: 1;
-}
-
-.list ul li a:hover {
-  color: #ff4612;
-}
-/* Stile per l'elemento attivo */
-.list ul li.active a {
-  color: #ff4612; /* Colore del testo dell'elemento attivo */
-}
-
-.list ul li.active a::before {
-  opacity: 1; /* La freccia sarà sempre visibile */
-  left: -20px; /* Mantieni la posizione della freccia */
-}
-.icon span a {
-  margin-left: 15px;
-  margin-right: 15px;
-  color: black;
-}
-.icon span a:hover {
-  color: #ff4612;
-}
 // sezione immagini header
 .rev img {
   max-width: 100%;
@@ -234,31 +219,11 @@ nav {
   margin-right: 20px;
   cursor: pointer;
 }
-.info button span:nth-of-type(1) {
-  margin-right: 15px;
-}
-.info button span:nth-of-type(2) {
-  margin-right: 15px;
-  font-size: x-large;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-}
-.info button:hover span:last-of-type {
-  opacity: 0;
-  transform: scaley(0);
-}
-.info button:hover i {
-  transform: translateX(-25px);
-  transition: transform 0.3s ease;
+.info button:nth-of-type(1) {
+  @include button-white;
 }
 
 .info button:nth-of-type(2) {
-  background-color: #ff4612;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: large;
-  margin-top: 25px;
-  cursor: pointer;
+  @include button-orange;
 }
 </style>

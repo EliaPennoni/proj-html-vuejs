@@ -61,22 +61,64 @@ export default {
         <span>L</span>
         <span>S</span>
       </div>
-      <div class="faces">
-        <div class="images">
-          <img :src="headerImg[index].logoImg" alt="" />
+      <!-- Bootstrap Carousel -->
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <button
+            v-for="(item, idx) in headerImg"
+            :key="idx"
+            type="button"
+            :data-bs-target="'#carouselExampleIndicators'"
+            :data-bs-slide-to="idx"
+            :class="{ active: idx === 0 }"
+            :aria-label="'Slide ' + (idx + 1)"
+            :aria-current="idx === 0 ? 'true' : false"
+          ></button>
         </div>
-        <div class="info">
-          <h1>
-            {{ headerImg[index].info }}
-          </h1>
-          <p>{{ headerImg[index].description }}</p>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+          <div
+            v-for="(item, idx) in headerImg"
+            :key="idx"
+            :class="['carousel-item', { active: idx === 0 }]"
+          >
+            <img
+              :src="item.logoImg"
+              class="d-block w-10 mx-auto"
+              :alt="item.info"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{ item.info }}</h5>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
         </div>
-        <div class="arrow-right">
-          <i @click="imgPlus()" class="fa fa-arrow-right-long fa-2x"></i>
-        </div>
-        <div class="arrow-left">
-          <i @click="imgMinus()" class="fa fa-arrow-left-long fa-2x"></i>
-        </div>
+
+        <!-- Carousel Controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   </div>
@@ -84,15 +126,35 @@ export default {
 
 <style lang="scss" scoped>
 @use "/src/assets/scss/general.scss" as *;
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
 .background {
   background-color: #1e1c1c;
   width: 100%;
+  height: 500px;
 }
 .container {
-  width: 80%;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 20px;
 }
+.carousel-inner {
+  position: relative;
+  overflow: visible; /* Sovrascrive il valore di overflow hidden */
+}
+.carousel-item {
+  position: relative;
+}
+.carousel-caption {
+  position: absolute;
+  bottom: -150px;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: -180px;
+}
+
 .letters {
   display: flex;
   justify-content: center; /* Centra gli span orizzontalmente */
@@ -108,18 +170,6 @@ export default {
   font-size: 120px;
   font-family: "Libre Baskerville", serif;
   font-weight: 700;
-}
-.faces {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-  transition: transform 0.5s ease;
 }
 .arrow-left,
 .arrow-right {

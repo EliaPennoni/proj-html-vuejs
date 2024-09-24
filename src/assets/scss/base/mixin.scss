@@ -1,0 +1,74 @@
+// src/assets/scss/base/mixin.scss
+@mixin button-white {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: large;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  span:nth-of-type(1) {
+    margin-right: 15px;
+  }
+
+  span:nth-of-type(2) {
+    margin-right: 15px;
+    font-size: x-large;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  &:hover span:last-of-type {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  &:hover i {
+    transform: translateX(-25px);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+    color: black;
+  }
+}
+
+@mixin button-orange {
+  background-color: $primary-color;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: large;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  span:nth-of-type(1) {
+    margin-right: 15px;
+  }
+
+  span:nth-of-type(2) {
+    margin-right: 15px;
+    font-size: x-large;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  &:hover span:last-of-type {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  &:hover i {
+    transform: translateX(-25px);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: black;
+  }
+}
