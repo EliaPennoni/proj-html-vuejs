@@ -33,7 +33,8 @@ export default {
           </li>
         </ul>
         <button>
-          <span>Purchase</span><i class="fa fa-arrow-right fa-2x"></i>
+          <span>Purchase</span><span>|</span
+          ><i class="fa fa-arrow-right-long"></i>
         </button>
       </div>
       <div class="plan2">
@@ -55,7 +56,8 @@ export default {
           </li>
         </ul>
         <button>
-          <span>Purchase</span><i class="fa fa-arrow-right fa-2x"></i>
+          <span>Purchase</span><span>|</span
+          ><i class="fa fa-arrow-right-long"></i>
         </button>
       </div>
       <div class="plan3">
@@ -77,7 +79,8 @@ export default {
           </li>
         </ul>
         <button>
-          <span>Purchase</span><i class="fa fa-arrow-right fa-2x"></i>
+          <span>Purchase</span><span>|</span
+          ><i class="fa fa-arrow-right-long"></i>
         </button>
       </div>
     </div>
@@ -195,6 +198,35 @@ export default {
 .plan2 span:last-of-type,
 .plan3 span:last-of-type {
   vertical-align: super;
+}
+// generali button------------------------------------------------------------button span:nth-of-type(1) {
+button {
+  margin-right: 15px;
+}
+
+button span:nth-of-type(2) {
+  margin-right: 15px;
+  font-size: x-large;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+button:hover span:last-of-type {
+  opacity: 0;
+  transform: scaley(0);
+}
+button:hover i {
+  transform: translateX(-25px);
+  transition: transform 0.3s ease;
+}
+
+button {
+  background-color: #ff4612;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: large;
+  margin-top: 25px;
+  cursor: pointer;
 }
 button {
   display: block;

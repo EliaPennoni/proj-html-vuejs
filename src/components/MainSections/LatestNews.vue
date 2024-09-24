@@ -81,17 +81,15 @@ export default {
             <div v-for="(card, index) in cards" :key="index" class="card">
               <img :src="card.img" alt="" />
               <span>
-                <i class="fa-regular fa-clock fa-sm"
-                  ><a href="">May 5, 2019</a></i
-                >
-                <i class="fa-regular fa-user fa-sm"
-                  ><a href="">Amanda Doe</a></i
-                >
+                <i class="fa-regular fa-clock fa-sm"></i>
+                <a href="">May 5, 2019</a>
+                <i class="fa-regular fa-user fa-sm"></i>
+                <a href="">Amanda Doe</a>
               </span>
               <button><i class="fa-solid fa-tag"></i> Business, Leading</button>
               <h4>{{ card.title }}</h4>
               <p>{{ card.description }}</p>
-              <span>Read More</span>
+              <span class="arrow-more">Read More</span>
             </div>
           </div>
         </div>
@@ -274,16 +272,40 @@ export default {
   background-color: #333;
 }
 .card span i {
-  margin-right: 5px;
+  margin-right: 3px;
+  color: #ff4612;
 }
-.card span i a {
-  font-size: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
+.card span a {
+  font-size: 15px;
+  margin-right: 10px;
   text-decoration: none;
   color: black;
 }
-.card span i a:hover {
+.card span a:hover {
   color: #ff4612;
+}
+.arrow-more {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.arrow-more:hover {
+  transform: translateX(30px);
+}
+.arrow-more::before {
+  content: "\2192";
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #ff4612;
+}
+
+.arrow-more:hover::before {
+  opacity: 1;
 }
 </style>

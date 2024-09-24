@@ -69,7 +69,7 @@ export default {
         ></textarea>
 
         <button>
-          <span>Send</span><i class="fa fa-arrow-right fa-2x"></i>
+          <span>Send</span><span>|</span><i class="fa fa-arrow-right-long"></i>
         </button>
       </div>
     </div>
@@ -159,20 +159,51 @@ textarea:focus {
   border-bottom: 2px solid #ff4612; /* Colore del bordo al focus */
   background-color: #f8f8f8; /* Leggero cambiamento di sfondo al focus (opzionale) */
 }
-button {
-  display: block;
+// button generale----------------------------------------------------------------------------
+
+.ask button span:nth-of-type(1) {
+  margin-right: 15px;
+}
+.ask button span:nth-of-type(2) {
+  margin-right: 15px;
+  font-size: x-large;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.ask button:hover span:last-of-type {
+  opacity: 0;
+  transform: scaley(0);
+}
+.ask button:hover i {
+  transform: translateX(-25px);
+  transition: transform 0.3s ease;
+}
+
+.ask button {
   background-color: #ff4612;
   color: white;
   border: none;
-  margin-top: 30px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+  padding: 10px 20px;
+  font-size: large;
+  margin-top: 25px;
+  cursor: pointer;
 }
-button span {
-  font-size: medium;
-  margin-right: 5px;
-}
+// ---------------------------------------------------------------------------------------------
+
+// button {
+//   display: block;
+//   background-color: #ff4612;
+//   color: white;
+//   border: none;
+//   margin-top: 30px;
+//   padding: 15px;
+//   display: flex;
+//   align-items: center;
+// }
+// button span {
+//   font-size: medium;
+//   margin-right: 5px;
+// }
 .plus1 {
   position: absolute;
   top: 30%;

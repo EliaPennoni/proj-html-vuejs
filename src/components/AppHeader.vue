@@ -80,10 +80,12 @@ export default {
         </h1>
         <p>{{ headerImg[index].description }}</p>
         <button>
-          <span>Read More |</span><i class="fa fa-arrow-right-long"></i>
+          <span>Read More</span><span>|</span
+          ><i class="fa fa-arrow-right-long"></i>
         </button>
         <button>
-          <span>Purchase |</span><i class="fa fa-arrow-right-long"></i>
+          <span>Purchase</span><span>|</span
+          ><i class="fa fa-arrow-right-long"></i>
         </button>
       </div>
       <div class="arrow-right">
@@ -221,22 +223,42 @@ nav {
 .info p {
   color: gray;
 }
+// modifiche generali per button
 .info button:nth-of-type(1) {
   background-color: white;
   color: black;
   border: 1px solid #ccc;
-  padding: 15px 25px;
+  padding: 10px 20px;
   font-size: large;
   margin-top: 25px;
   margin-right: 20px;
+  cursor: pointer;
+}
+.info button span:nth-of-type(1) {
+  margin-right: 15px;
+}
+.info button span:nth-of-type(2) {
+  margin-right: 15px;
+  font-size: x-large;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.info button:hover span:last-of-type {
+  opacity: 0;
+  transform: scaley(0);
+}
+.info button:hover i {
+  transform: translateX(-25px);
+  transition: transform 0.3s ease;
 }
 
 .info button:nth-of-type(2) {
   background-color: #ff4612;
-  color: white; /* Testo bianco per contrastare lo sfondo arancione */
-  border: none; /* Rimuovi bordo se non necessario */
-  padding: 15px 25px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   font-size: large;
   margin-top: 25px;
+  cursor: pointer;
 }
 </style>

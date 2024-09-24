@@ -15,7 +15,7 @@ export default {
           provident. At nam accusantium ad sapiente facere minima cumque, vel
           sed?
         </p>
-        <span>Read More</span>
+        <span class="arrow-more">Read More</span>
       </div>
       <div class="right">
         <div class="mentorship">
@@ -88,22 +88,28 @@ export default {
   bottom: -10px;
   left: 5px;
 }
-.left span {
+.arrow-more {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
   font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
-.left span::before {
-  content: "\f178";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+.arrow-more:hover {
+  transform: translateX(30px);
+}
+.arrow-more::before {
+  content: "\2192";
   position: absolute;
-  left: 0px;
-  bottom: 10px;
-  transform: translateY(-50%);
+  left: -20px;
   opacity: 0;
-  transition: opacity 0.5s ease, left 0.5s ease;
+  transition: opacity 0.3s ease;
+  color: #ff4612;
 }
 
-.left span:hover::before {
+.arrow-more:hover::before {
   opacity: 1;
 }
 
