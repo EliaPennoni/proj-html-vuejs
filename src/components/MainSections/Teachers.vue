@@ -40,11 +40,15 @@ export default {
     };
   },
   methods: {
+    carouselTransform() {
+      const shift = this.currentIndex * (100 / this.visibleImagesCount);
+      return `translateX(-${shift}%)`;
+    },
     next() {
       if (this.currentIndex < this.images.length - this.visibleImagesCount) {
         this.currentIndex++;
       } else {
-        this.currentIndex = 0; // Ricomincia dalla prima immagine
+        this.currentIndex = 0;
       }
     },
     prev() {
@@ -66,14 +70,7 @@ export default {
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <div class="carousel-wrapper">
         <!-- Carosello delle immagini con transizione -->
-        <div
-          class="carousel"
-          :style="{
-            transform: `translateX(-${
-              currentIndex * (100 / visibleImagesCount)
-            }%)`,
-          }"
-        >
+        <div class="carousel" :style="{ transform: carouselTransform() }">
           <div
             v-for="(image, index) in images"
             :key="index"
@@ -244,10 +241,10 @@ button,
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 16px; /* Stesso font-size */
-  line-height: 1.5; /* Allinea il testo verticalmente */
-  height: 40px; /* Assicura che l'altezza sia la stessa */
-  width: 40px; /* Aggiungi questa se vuoi una larghezza uniforme */
+  font-size: 16px;
+  line-height: 1.5;
+  height: 40px;
+  width: 40px;
 }
 
 button:hover,

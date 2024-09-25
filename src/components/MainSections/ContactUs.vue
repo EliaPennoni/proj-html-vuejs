@@ -142,15 +142,15 @@ export default {
 .input input,
 textarea {
   border: none;
-  border-bottom: 2px solid #ccc; /* Sostituisce il bordo predefinito */
-  outline: none; /* Rimuove il bordo nero quando si fa click */
+  border-bottom: 2px solid #ccc;
+  outline: none;
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   margin-right: 5px;
-  font-family: "Libre Baskerville", serif; /* Applica il font a tutti */
+  font-family: "Libre Baskerville", serif;
   font-size: 16px;
-  background-color: transparent; /* Elimina il background predefinito */
+  background-color: transparent;
   transition: border-color 0.3s ease;
 }
 

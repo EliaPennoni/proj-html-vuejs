@@ -49,13 +49,13 @@ export default {
   color: white;
   text-align: center;
   font-family: "Libre Baskerville", serif;
-  width: 200px; /* Larghezza uguale all'altezza per un cerchio perfetto */
-  height: 200px; /* Altezza uguale alla larghezza */
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  border-radius: 50%; /* Fa sì che l'elemento diventi un cerchio */
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   position: relative;
 }
 .first h3,
