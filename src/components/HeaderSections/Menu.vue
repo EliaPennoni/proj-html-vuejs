@@ -147,7 +147,6 @@ nav {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: black;
   min-width: 200px;
   padding: 15px 0;
   opacity: 0;
@@ -167,6 +166,7 @@ nav {
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: black;
 }
 
 .drop-down li {
